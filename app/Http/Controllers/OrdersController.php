@@ -15,8 +15,24 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = DB::table('orders')->paginate(30);
-        return view('orders', ['orders' => $orders]);
+
+
+        $orders = Order::with(’partner’, ’product’)
+
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('orders',['orders'=>$orders]);
+
+
+/*        <th>Id</th>
+                <th>Partner Name</th>
+                <th>Order Price</th>
+                <th>Product Name</th>
+                <th>Order Status</th>
+            </tr>*/
+
+
     }
 
     /**

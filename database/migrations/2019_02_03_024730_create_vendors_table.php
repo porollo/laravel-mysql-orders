@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductsTable extends Migration
+class CreateVendorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('vendors', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->increments('id');
+            $table->string('email');
             $table->string('name');
-            $table->integer('price');
-
-            $table->integer('vendor_id')->unsigned();
-            $table->foreign('vendor_id')->references('id')->on('vendors');
 
             $table->timestamps();
         });
@@ -34,6 +31,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('vendors');
     }
 }

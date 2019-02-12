@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 
 use Illuminate\Database\Seeder;
 
-class OrdersEditTableSeeder extends Seeder
+class PartnersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class OrdersEditTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\OrderEdit::class, 20) -> create();
+        factory(App\Partner::class, 40) -> create();
     }
 }

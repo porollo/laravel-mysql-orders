@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderEditsTable extends Migration
+class CreatePartnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,14 @@ class CreateOrderEditsTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders_edit', function (Blueprint $table) {
+        Schema::create('partners', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
 
             $table->increments('id');
-
-            $table->string('client_email');
-            $table->string('partner_name');
-            $table->string('products');
-            $table->integer('order_status');
-            $table->integer('order_cost');
-            $table->boolean('order_save_status');
+            $table->string('email')->unique();
+            $table->string('name');
 
             $table->timestamps();
-
         });
     }
 
@@ -36,6 +31,6 @@ class CreateOrderEditsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_edits');
+        Schema::dropIfExists('partners');
     }
 }

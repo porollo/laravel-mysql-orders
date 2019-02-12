@@ -40,9 +40,8 @@
                     <ul class="navbar-nav ml-auto">
 
                         <a class="nav-link" href="{{ url('/') }}">Weather</a>
-                        <a class="nav-link" href="{{ url('/orders') }}">Orders List</a>
-                        <a class="nav-link" href="{{ url('/orders-edit') }}">Edit Orders</a>
-                        <a class="nav-link" href="{{ url('/products') }}">Products List</a>
+                        <a class="nav-link" href="{{ url('/orders') }}">Orders</a>
+                        <a class="nav-link" href="{{ url('/products') }}">Products</a>
 
                         <!-- Authentication Links -->
                         @guest

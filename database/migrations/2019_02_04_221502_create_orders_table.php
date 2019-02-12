@@ -11,20 +11,24 @@ class CreateOrdersTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
 
             $table->increments('id');
+            $table->integer('status');
+            $table->string('client_email');
+            $table->dateTime('delivery_dt');
 
-            $table->string('partner_name');
-            $table->integer('order_cost');
-            $table->string('order_name');
-            $table->integer('order_status');
+            $table->integer('partner_id')->unsigned()->index()->nullable();
+            $table->foreign('partner_id')->references('id')->on('partners');
+
 
             $table->timestamps();
-
         });
+
     }
 
     /**
@@ -32,6 +36,7 @@ class CreateOrdersTable extends Migration
      *
      * @return void
      */
+
     public function down()
     {
         Schema::dropIfExists('orders');
