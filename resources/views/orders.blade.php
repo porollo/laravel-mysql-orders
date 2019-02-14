@@ -25,10 +25,10 @@
             @foreach($orders as $order)
                 <tr>
                     <td><a href = 'edit/{{ $order->id }}' target='_blank'>{{$order->id}}</a></td>
-  {{--                  <td>{{$order->order_name}}</td>
+                    <td>{{$order->order_name}}</td>
                     <td>{{$order->order_cost}}</td>
                     <td>{{$order->order_status}}</td>
-                    <td>{{$order->partner_name}}</td>--}}
+                    <td>{{$order->partner_name}}</td>
                 </tr>
             @endforeach
 

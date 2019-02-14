@@ -6,15 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+
+    protected $table = "products";
+
     protected $fillable = [
         'name', 'price',
     ];
 
-    public function vendor() {
-        return $this->hasOne(Vendor::class);
+
+    public function order_products(){
+        return $this->hasOne('App\OrderProducts', 'id');
     }
 
-    public function order_products() {
-        return $this->belongsTo(OrderProducts::class);
+
+    public function vendor() {
+        return $this->belongsTo('App\Vendor');
     }
+
+
 }

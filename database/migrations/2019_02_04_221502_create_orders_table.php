@@ -18,11 +18,11 @@ class CreateOrdersTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->integer('status');
+            $table->tinyInteger('status');
             $table->string('client_email');
             $table->dateTime('delivery_dt');
 
-            $table->integer('partner_id')->unsigned()->index()->nullable();
+            $table->integer('partner_id')->unsigned()->nullable();
             $table->foreign('partner_id')->references('id')->on('partners');
 
 

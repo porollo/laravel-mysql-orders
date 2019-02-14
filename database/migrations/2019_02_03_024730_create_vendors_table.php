@@ -14,10 +14,11 @@ class CreateVendorsTable extends Migration
     public function up()
     {
         Schema::create('vendors', function (Blueprint $table) {
+
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('name');
 
             $table->timestamps();

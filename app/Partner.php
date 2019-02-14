@@ -6,11 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Partner extends Model
 {
+
+    protected $table = "partners";
+
     protected $fillable = [
         'email', 'name',
     ];
 
     public function order(){
-        return $this->belongsTo(Order::class);
+        return $this->hasOne('App\Order');
     }
+
 }

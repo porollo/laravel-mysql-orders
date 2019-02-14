@@ -13,17 +13,23 @@ class Order extends Model
         'status', 'client_email', 'delivery_dt',
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
+    public function order_product()
+    {
+        return $this->hasOne('App\OrderProducts', 'id');
+    }
+
+
+
 
     public function partner() {
-        return $this->hasOne(Partner::class, 'partner_id');
+        return $this->belongsTo('App\Partner');
     }
 
-    public function order_products() {
-        return $this->belongsTo(OrderProducts::class);
-    }
+
+
+
+
+
 }
 
 

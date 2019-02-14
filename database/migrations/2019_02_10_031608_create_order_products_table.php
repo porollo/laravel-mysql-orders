@@ -17,8 +17,8 @@ class CreateOrderProductsTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->integer('quantity');
-            $table->integer('price');
+            $table->integer('quantity')->default(1);
+            $table->integer('price')->default(0);
 
             $table->integer('order_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders');

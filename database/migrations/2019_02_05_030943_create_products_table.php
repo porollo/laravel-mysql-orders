@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
 
             $table->increments('id');
             $table->string('name');
-            $table->integer('price');
+            $table->integer('price')->unsigned()->default(0);
 
             $table->integer('vendor_id')->unsigned();
             $table->foreign('vendor_id')->references('id')->on('vendors');

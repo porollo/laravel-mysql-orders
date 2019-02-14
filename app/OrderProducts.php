@@ -6,15 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderProducts extends Model
 {
+
+    protected $table = "order_products";
+
     protected $fillable = [
         'quantity', 'price',
     ];
 
-    function orders(){
-        $this->hasOne(Order::class);
+    public function order() {
+        return $this->belongsTo('App\Order', 'order_id');
     }
 
-    function products(){
-        $this->hasOne(Product::class);
+    public function product() {
+        return $this->belongsTo('App\Product', 'product_id');
     }
+
+
 }
