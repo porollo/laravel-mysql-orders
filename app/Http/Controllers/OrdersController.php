@@ -15,33 +15,12 @@ class OrdersController extends Controller
      */
     public function index()
     {
-
-      $partner_names = Order::all(name)->partner;
-      $orders = Order::all(id, status)->get();
-      $order_price = OrderProducts::all(price)->get();
-      $products_names = OrderProducts::all(name)->products;
+        $orders = OrderProducts::with(['order', 'order.partner', 'product', 'product.vendor'])->select()->get();;
 
 
+        return view('orders', ['orders' => $orders]);
 
-
-/*    $orders = $this->orders->with(['rule' => function ($query) {
-            $query->select('id', 'status');
-        }])->get();*/
-
-
-
-        //$orders = ... ... ... ... ...
-// collection orders with
-
-/*      orders.id
-        orders.status
-        partner.name
-        order_products.price
-        products.name
-*/
-
-
-        return view('orders',['data'=>$data]);
+        /*return view('orders',['data'=>$data]);*/
 
 
 

@@ -24,19 +24,18 @@
 
             @foreach($orders as $order)
                 <tr>
-                    <td><a href = 'edit/{{ $order->id }}' target='_blank'>{{$order->id}}</a></td>
-                    <td>{{$order->order_name}}</td>
-                    <td>{{$order->order_cost}}</td>
-                    <td>{{$order->order_status}}</td>
-                    <td>{{$order->partner_name}}</td>
+                    <td><a href = 'edit/{{ $order->order_id }}' target='_blank'>{{$order->order_id}}</a></td>
+                    <td>{{$order->order->partner->name}}</td>
+                    <td>{{$order->price}}</td>
+                    <td>{{$order->product->name}}</td>
+                    <td>{{$order->order->status}}</td>
                 </tr>
             @endforeach
 
         </table>
-        {{ $orders->links() }}
-
-
-
+{{--
+        {{ $order->links() }}
+--}}
 
     </div>
 @endsection
